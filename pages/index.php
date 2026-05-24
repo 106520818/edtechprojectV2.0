@@ -29,7 +29,7 @@ Description: Homepage/index
     </a>
     <nav>
         <ul>
-            <li><a href="index.html" target="_self">Homepage</a></li>
+            <li><a href="pages/index.html" target="_self">Homepage</a></li>
             <li><a href="pages/apply.html" target="_self">Applications</a></li>
             <li><a href="pages/jobs.html" target="_self">Jobs</a></li>
             <li><a href="pages/about.html" target="_self">About</a></li>
