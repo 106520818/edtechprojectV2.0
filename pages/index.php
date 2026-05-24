@@ -23,18 +23,10 @@ Description: Homepage/index
     </style>
 </head>
 
-    <a href="index.html">
-        <img id=book_smart_logo src="Images/BookSmart_Digital_logo_CAF0F8_background.png"
-            alt="BookSmart Digital Company Logo" title="To home page">
-    </a>
-    <nav>
-        <ul>
-            <li><a href="pages/index.html" target="_self">Homepage</a></li>
-            <li><a href="pages/apply.html" target="_self">Applications</a></li>
-            <li><a href="pages/jobs.html" target="_self">Jobs</a></li>
-            <li><a href="pages/about.html" target="_self">About</a></li>
-        </ul>
-    </nav>
+<?php
+include 'header.inc';
+?>
+
 
     <form>
         <label for="search">Search:</label>
@@ -99,9 +91,8 @@ Description: Homepage/index
     <hr>
 
     <footer>
-        <a href=mailto:info@edtech.com>Email Link</a>
-        <a href="https://github.com/106520818/edtechprojectV2.0" target="_blank">Github Link</a>
-        <a href="https://106520313.github.io/EdTechProject/index.html" target="_blank">Published page</a>
+    <?php include 'footer.inc';
+    ?>
     </footer>
 </body>
 
