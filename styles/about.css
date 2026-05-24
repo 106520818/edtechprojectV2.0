@@ -1,0 +1,54 @@
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2em;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 2em auto;
+    padding: 0 1em 120px 1em;
+}
+
+.aboutboxes {
+    background-color: #CAF0F8;
+    padding: 1em 1.5em;
+    flex: 1 1 0;
+    min-width: 300px;
+    max-width: 500px;
+    border: 3px inset #0077B6;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+
+.aboutboxes h1 {
+    text-align: center;
+    margin-top: 0;
+    color: #03045E;
+}
+
+.member {
+    background-color: #fff;
+    border-left: 4px solid #0077B6;
+    padding: 0.8em 1em;
+    margin-bottom: 1em;
+}
+
+.member dt {
+    font-weight: bold;
+    font-size: 1.15em;
+    color: #03045E;
+}
+
+.group-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.member .quote {
+    margin-top: 0.5em;
+    font-style: italic;
+    color: #0077B6;
+}

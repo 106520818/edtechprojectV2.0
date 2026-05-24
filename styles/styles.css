@@ -1,0 +1,60 @@
+* {
+    background-color: #CAF0F8;
+    font-family: Arial, Helvetica, sans-serif;
+    /*Sets background colour to above and font to ariel*/
+}
+
+#book_smart_logo {
+    width: 25%;
+    text-align: center;
+    /*sets size and alignmemt of company logo*/
+}
+
+h1 {
+    color: #3A3DF8;
+    /*Sets all h1 heading to above colour*/
+}
+
+
+nav ul {
+    list-style: none;
+    /* removes bullet points */
+    display: flex;
+    /* puts items in a row */
+    justify-content: center;
+    /* centers the flex items */
+    gap: 20px;
+    /* space between items */
+    padding: 0;
+}
+
+nav a:hover {
+    background-color: #3A3DF8;
+    color: white;
+    border-radius: 4px;
+    /* rounded corners on hover */
+}
+
+nav {
+    text-align: center;
+    /*Aligns nav to center of page*/
+}
+
+
+footer {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 2px solid #0077B6;
+    background-color: #90E0EF;
+    clear: both;
+    /*centeres the footer as well as setting framing and sizeing. Colours background and top line*/
+}
+
+footer a {
+    background-color: transparent;
+    /*makes hyperlinks background transparent*/
+}
