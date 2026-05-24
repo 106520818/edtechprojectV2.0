@@ -100,9 +100,7 @@ Description: Homepage/index
 
     <footer>
         <a href=mailto:info@edtech.com>Email Link</a>
-        <a href="https://connortaylor623.atlassian.net/jira/software/projects/GGEP/summary" target="_blank">Jira
-            Link</a>
-        <a href="https://github.com/106520313/EdTechProject" target="_blank">Github Link</a>
+        <a href="https://github.com/106520818/edtechprojectV2.0" target="_blank">Github Link</a>
         <a href="https://106520313.github.io/EdTechProject/index.html" target="_blank">Published page</a>
     </footer>
 </body>
