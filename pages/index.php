@@ -3,8 +3,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="..styles/styles.css">
+    <link rel="stylesheet" href="..styles/index.css">
     <title>Booksmart Digital Home Page</title>
     <meta charset="UTF-8">
     <meta name="description" content="EdTech Project home page">

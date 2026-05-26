@@ -4,10 +4,12 @@
     </a>
     <nav>
         <ul>
-            <li><a href="pages/index.html" target="_self">Homepage</a></li>
-            <li><a href="pages/apply.html" target="_self">Applications</a></li>
-            <li><a href="pages/jobs.html" target="_self">Jobs</a></li>
-            <li><a href="pages/about.html" target="_self">About</a></li>
+            <li><a href="pages/index.php" target="_self">Homepage</a></li>
+            <li><a href="pages/apply.php" target="_self">Applications</a></li>
+            <li><a href="pages/jobs.php" target="_self">Jobs</a></li>
+            <li><a href="pages/about.php" target="_self">About</a></li>
+            <li><a href="pages/login.php" target="_self">Login</a></li>
+
         </ul>
     </nav>
 
