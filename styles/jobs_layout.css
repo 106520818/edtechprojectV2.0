@@ -1,80 +1,83 @@
-#Jdev_box {
+.jobs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.job-box {
     background-color: #CAF0F8;
-    padding: 0.5em;
-    width: 35%;
-    float: left;
+    padding: 1em;
+    width: 42%;
     border: 3px inset #0077B6;
     border-radius: 16px;
-    margin-left: 3em;
-    margin-bottom: 3em;
+    box-sizing: border-box;
 }
-#Sdev_box {
-    background-color: #CAF0F8;
+
+.job-description {
+    padding: 0.5em;
+    width: 55%;
+    float: left;
+    border: 2px inset #0077B6;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+.job-salary {
     padding: 0.5em;
     width: 35%;
     float: right;
-    border: 3px inset #0077B6;
-    border-radius: 16px;
-    margin-right: 3em;
-    margin-bottom: 3em;
-}
-
-
-#dev_desc {
-    padding: 0.5em;
-    width: 60%;
-    float: left ;
-    border: 2px inset #0077B6;
-    border-radius: 8px;
-    margin-bottom: 2em;
-}
-
-#dev_WF {
-    padding: 0.5em;
-    width: 40%;
-    float: left ;
     border: 2px inset #0077B6;
     border-radius: 8px;
     margin-bottom: 1em;
-    margin-left: 1em;
-
 }
 
-#dev_sal {
+.job-workflow {
     padding: 0.5em;
-    width: 40%;
-    float: right ;
+    width: 55%;
+    float: left;
     border: 2px inset #0077B6;
     border-radius: 8px;
-    margin-bottom: 2em;
-    margin-right: 1em;
-    
 }
 
-#dev_req {
+.job-requirements {
     padding: 0.5em;
-    width: 40%;
-    float: right ;
+    width: 35%;
+    float: right;
     border: 2px inset #0077B6;
     border-radius: 8px;
-    margin-bottom: 1em;
-    margin-right: 1em;
-
-}
-section, h2 {
-    align-content: center;
 }
 
-h1{
-    text-align: center;
+.job-code {
+    float: right;
+    width: auto;
+    padding: 0.5em;
+    border: 2px inset #0077B6;
+    border-radius: 8px;
+    background-color: white;
 }
 
-aside {
+.requirements-box {
     float: right;
     width: 25%;
-    margin-bottom: 1em;
+    margin: 1em;
     padding: 1em;
     border: 2px inset #0077B6;
     border-radius: 16px;
-    clear: left;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul,
+ol {
+    padding-left: 1.5em;
+}
+
+footer {
+    clear: both;
+    padding-top: 2em;
 }
