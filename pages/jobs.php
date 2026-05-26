@@ -19,21 +19,12 @@ Description: ___
     <link rel="stylesheet" type="text/css" href="../styles/styles.css">
 </head>
 
+<?php
+include '../IncFiles/header.inc';
+?>
+
 <body>
     <!--heading of jobs page followed by horizontal rule to break up space-->
-    <a href="../index.html">
-        <img id=book_smart_logo src="../Images/BookSmart_Digital_logo_CAF0F8_background.png"
-            alt="BookSmart Digital Company Logo" title="To home page">
-    </a>
-    <nav>
-        <ul>
-            <li><a href="../index.html" target="_self">Homepage</a></li>
-            <li><a href="apply.html" target="_self">Applications</a></li>
-            <li><a href="jobs.html" target="_self">Jobs</a></li>
-            <li><a href="about.html" target="_self">About</a></li>
-    </nav>
-
-    <hr style="height: 3px; border: none; background-color: black;">
     
     <h1>BookSmart Digital</h1>
 
@@ -124,13 +115,8 @@ Description: ___
         </section>
     </section>
     
-
-    <footer>
-        <a href="mailto:info@edtech.com">Email Link</a>
-        <a href="https://connortaylor623.atlassian.net/jira/software/projects/GGEP/summary" target="_blank">Jira Link</a>
-        <a href="https://github.com/106520313/EdTechProject" target="_blank">Github Link</a>
-        <a href="https://106520313.github.io/EdTechProject/index.html" target="_blank">Published page</a>
-    </footer>
+ <?php include '../IncFiles/footer.inc';
+    ?>
 </body>
 
 </html>

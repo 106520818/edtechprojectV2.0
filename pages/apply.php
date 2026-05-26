@@ -28,19 +28,11 @@ Description: ___
     </style>
 </head>
 
+<?php
+include '../IncFiles/header.inc';
+?>
+
 <body>
-    <a href="../index.html">
-        <img id=book_smart_logo src="../Images/BookSmart_Digital_logo_CAF0F8_background.png"
-            alt="BookSmart Digital Company Logo" title="To home page">
-    </a>
-    <nav>
-        <ul>
-            <li><a href="../index.html" target="_self">Homepage</a></li>
-            <li><a href="apply.html" target="_self">Applications</a></li>
-            <li><a href="jobs.html" target="_self">Jobs</a></li>
-            <li><a href="about.html" target="_self">About</a></li>
-        </ul>
-    </nav>
 
     <h1>Application Page</h1>
     <h2>Instructions:</h2>
@@ -144,6 +136,9 @@ Description: ___
         <input type="submit" value="Register">
         <input type="reset" value="Reset Form">
     </form>
+
+ <?php include '../IncFiles/footer.inc';
+?>
 </body>
 
 </html>

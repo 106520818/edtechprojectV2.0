@@ -21,7 +21,7 @@
 include '../IncFiles/header.inc';
 ?>
 
-    <h1 style="text-align: center;">BookSmart Digital</h1>
+<body>
     <h2 style="text-align: center;">"Where proven learning techniques meet modern tech"</h2>
     <fieldset id="description">
     <h3>Company Description:</h3>
@@ -74,12 +74,9 @@ include '../IncFiles/header.inc';
         </tbody>
     </table>
 
-    <hr>
-
-    <footer>
-    <?php include '../IncFiles/footer.inc';
+ <?php include '../IncFiles/footer.inc';
     ?>
-    </footer>
+
 </body>
 
 </html>
