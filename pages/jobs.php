@@ -25,8 +25,6 @@ include '../IncFiles/header.inc';
 
 <body>
     <!--heading of jobs page followed by horizontal rule to break up space-->
-    
-    <h1>BookSmart Digital</h1>
 
     <aside> 
         <h2>Requirements</h2>
