@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!-- 
-Created: 01/04/2026
-Last Edited: 08/04/2026
-Authors: Connor Taylor, Roman Young
-Description: Homepage/index
--->
 
 <html lang="en">
 
@@ -36,7 +30,7 @@ include 'header.inc';
 
     <hr id = head_line>
     <h1 style="text-align: center;">BookSmart Digital</h1>
-    <h2 style="text-align: center;">"Where proven learing techniques meet modern tech"</h2>
+    <h2 style="text-align: center;">"Where proven learning techniques meet modern tech"</h2>
     <fieldset id="description">
     <h3>Company Description:</h3>
     <p> We at booksmart digital are a technology company developing digital learning tools and platforms. We are currently seeking web developers and designers to support accessible and inclusive online education services </p>
