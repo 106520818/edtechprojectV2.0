@@ -54,18 +54,18 @@ Description: ___
             <p>
                 <label for="job_reference_number">Job reference number</label>
                 <input type="text" name="Job reference number" id="job_reference_number" required="required"
-                    pattern="[a-zA-Z0-9]{5}">
+                    pattern="[a-zA-Z0-9]{5}" title="5 alphanumeric characters (a-z, A-Z , 0-9)">
             </p>
         </fieldset>
         <fieldset>
             <legend>Your details</legend>
             <p>
                 <label for="given_name">Given Name</label>
-                <input type="text" name="Given Name" id="given_name" required="required" pattern="[a-zA-Z]{1-20}">
+                <input type="text" name="Given Name" id="given_name" required="required" pattern="[a-zA-Z]{1,20}" title="Between 1 and 20 alphanumeric characters">
             </p>
             <p>
                 <label for="family_name">Family Name</label>
-                <input type="text" name="Family Name" id="family_name" required="required" pattern="[a-zA-Z]{1-20}">
+                <input type="text" name="Family Name" id="family_name" required="required" pattern="[a-zA-Z]{1,20}" title="Between 1 and 20 alphanumeric characters">
             </p>
             <p>
                 <label for="dob">Date of birth</label>
@@ -82,11 +82,11 @@ Description: ___
             <p>
                 <label for="street_address">Street Address</label>
                 <input type="text" name="Street Address" id="street_address" required="required"
-                    pattern="[a-zA-Z]{1-40}">
+                    pattern="[a-zA-Z0-9]{1,40}" title="Between 1 and 40 alphanumeric characters">
             </p>
             <p>
                 <label for="suburb">Suburb/Town</label>
-                <input type="text" name="Suburb/Town" id="suburb" required="required" pattern="[a-zA-Z]{1-40}">
+                <input type="text" name="Suburb/Town" id="suburb" required="required" pattern="[a-zA-Z]{1,40}" title="Between 1 and 40 alphabetical characters">
             </p>
             <p>
                 <label for="state">State</label>
@@ -103,17 +103,15 @@ Description: ___
             </p>
             <p>
                 <label for="postcode">Postcode</label>
-                <input type="text" name="Postcode" id="postcode" required="required" pattern="[0-9]{4}">
+                <input type="text" name="Postcode" id="postcode" required="required" pattern="[0-9]{4}" title="4 numeric characters">
             </p>
             <p>
                 <label for="email">Email</label>
-                <input type="text" name="Email" id="email" required="required"
-                    pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
-                <!-- source for regex: https://stackoverflow.com/questions/21608294/regex-for-validating-emails -->
+                <input type="email" name="Email" id="email" required="required">
             </p>
             <p>
                 <label for="phone_number">Phone Number</label>
-                <input type="text" name="Phone Number" id="phone_number" required="required" pattern="[0-9]{8-12}">
+                <input type="text" name="Phone Number" id="phone_number" required="required" pattern="[0-9]{8,12}" title="8-12 numeric characters">
             </p>
         </fieldset>
         <fieldset>
