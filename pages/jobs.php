@@ -18,7 +18,15 @@
 <?php
 require_once("settings.php");
 
-$query = "SELECT * FROM jobs";
+$search = "";
+
+if (isset($_GET['search'])) {
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
+}
+
+$query = "SELECT * FROM jobs 
+          WHERE title LIKE '%$search%'";
+
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -49,6 +57,18 @@ $result = mysqli_query($conn, $query);
         that you meet our specifications before applying.
     </p>
 </aside>
+
+<form method="get" action="jobs.php" class="search-container">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search job titles..."
+        value="<?php echo htmlspecialchars($search); ?>">
+
+    <button type="submit">Search</button>
+
+</form>
 
 <div class="jobs-container">
 
