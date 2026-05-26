@@ -3,8 +3,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="..styles/styles.css">
-    <link rel="stylesheet" href="..styles/index.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/index.css">
     <title>Booksmart Digital Home Page</title>
     <meta charset="UTF-8">
     <meta name="description" content="EdTech Project home page">
@@ -18,17 +18,9 @@
 </head>
 
 <?php
-include 'header.inc';
+include '../IncFiles/header.inc';
 ?>
 
-
-    <form>
-        <label for="search">Search:</label>
-        <input type="text" id="search" name = "search" placeholder="jobs, about, etc.">
-        <button type="submit">Search</button>
-    </form>
-
-    <hr id = head_line>
     <h1 style="text-align: center;">BookSmart Digital</h1>
     <h2 style="text-align: center;">"Where proven learning techniques meet modern tech"</h2>
     <fieldset id="description">
@@ -85,7 +77,7 @@ include 'header.inc';
     <hr>
 
     <footer>
-    <?php include 'footer.inc';
+    <?php include '../IncFiles/footer.inc';
     ?>
     </footer>
 </body>
