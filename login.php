@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (isset($_SESSION["username"])) {
-    header("Location: manage.php");
-    exit();
-}
+//if (isset($_SESSION["username"])) {
+//    header("Location: manage.php");
+//    exit();
+//}
 ?>
 
 <!DOCTYPE html>
