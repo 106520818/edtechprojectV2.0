@@ -92,6 +92,7 @@ $result = mysqli_query($conn, $query);
 
 <head>
     <title>Manage EOIs</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>

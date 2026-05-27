@@ -65,13 +65,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
-
-Logout.php:
-<?php
-session_start();
-
-session_destroy();
-
-header("Location: login.php");
-exit();
-?>
