@@ -3,4 +3,10 @@ $host = "localhost";
 $user = "root";
 $pwd = "";
 $sql_db = "jobportal";
+
+$conn = mysqli_connect($host, $user, $password, $database);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>
