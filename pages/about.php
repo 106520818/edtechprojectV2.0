@@ -1,8 +1,5 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pwd  = "";
-$sql_db = "edtechv2";
+require_once '../settings.php';
 
 $members = [];
 $db_error = "";
