@@ -28,12 +28,10 @@ Description: ___
     </style>
 </head>
 
-<?php
-include '../IncFiles/header.inc';
-?>
-
 <body>
-
+    <?php
+        include '../IncFiles/header.inc';
+    ?>
     <h1>Application Page</h1>
     <h2>Instructions:</h2>
     <h3 style="font-size: 0.9rem;">Please find the relevant <a href="jobs.html" target="_blank"
@@ -136,9 +134,11 @@ include '../IncFiles/header.inc';
         <input type="submit" value="Register">
         <input type="reset" value="Reset Form">
     </form>
-
- <?php include '../IncFiles/footer.inc';
-?>
+    <hr>
+    <footer>
+    <?php include '../IncFiles/footer.inc';
+    ?>
+    </footer>
 </body>
 
 </html>
