@@ -91,6 +91,55 @@ ALTER TABLE `jobs`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_contributions`
+--
+
+CREATE TABLE `member_contributions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `student_id` varchar(20) NOT NULL,
+  `quote` text NOT NULL,
+  `quote_lang` varchar(10) NOT NULL DEFAULT 'en',
+  `quote_translation` text NOT NULL,
+  `quote_source` varchar(100) NOT NULL,
+  `project1_contribution` text NOT NULL,
+  `project2_contribution` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `member_contributions`
+--
+
+INSERT INTO `member_contributions` (`name`, `student_id`, `quote`, `quote_lang`, `quote_translation`, `quote_source`, `project1_contribution`, `project2_contribution`) VALUES
+('Cohen Pentland', '106506135',
+ 'Per aspera ad astra.', 'la',
+ '"Through hardships to the stars."', 'Latin',
+ 'Designed and built the About page, including team member profiles, fun facts table, group photo section, and acknowledgement of country.',
+ 'Integrated member contributions into the database and updated the About page to dynamically load data from MySQL via PHP.'),
+
+('Oliver Wisbey', '106520818',
+ '七転び八起き。', 'ja',
+ '"Fall seven times, stand up eight."', 'Japanese',
+ 'Built the Jobs page, including job listing cards with descriptions, responsibilities, expectations, salary, and requirements pulled from the database.',
+ 'Developed the HR management page (manage.php) for viewing, filtering, sorting, and updating EOI application statuses.'),
+
+('Connor Taylor', '',
+ 'Petit à petit, l\'oiseau fait son nid.', 'fr',
+ '"Little by little, the bird builds its nest."', 'French',
+ 'Created the Homepage (index page) with the site introduction, navigation layout, and overall page structure and styling.',
+ 'Built shared header and footer include files (header.inc, footer.inc) for consistent navigation and branding across all pages.'),
+
+('Roman Young', '',
+ 'No hay mal que por bien no venga.', 'es',
+ '"There is no bad from which good does not come."', 'Spanish',
+ 'Built the Application page (apply.php) with the EOI submission form, including all input fields and client-side validation.',
+ 'Implemented the login/logout system (login.php, logout.php) and the EOI form processing backend (process.php) with server-side validation and database insertion.');
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
