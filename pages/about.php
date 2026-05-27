@@ -1,3 +1,27 @@
+<?php
+$host = "localhost";
+$user = "root";
+$pwd  = "";
+$sql_db = "edtechv2";
+
+$members = [];
+$db_error = "";
+mysqli_report(MYSQLI_REPORT_OFF);
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+if (!$conn) {
+    $db_error = "Connection failed: " . mysqli_connect_error();
+} else {
+    $result = @mysqli_query($conn, "SELECT * FROM member_contributions ORDER BY id");
+    if (!$result) {
+        $db_error = "Query failed: " . mysqli_error($conn);
+    } else {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $members[] = $row;
+        }
+    }
+    mysqli_close($conn);
+}
+?>
 <!DOCTYPE html>
 <!--
 Created: 01/04/2026
@@ -5,7 +29,6 @@ Last Edited: 15/04/2026
 Authors: Connor Taylor, Roman Young
 Description: About page
 -->
-
 <html lang="en">
 
 <head>
@@ -100,16 +123,19 @@ Description: About page
             cursor: default;
         }
     </style>
-
 </head>
 
+<body>
+
 <?php
-include '../IncFiles/header.inc';
+if (!@include('../IncFiles/header.inc')) {
+    echo '<p style="color:red;">Header include failed</p>';
+}
 ?>
 
-<body>
     <main>
         <div class="about-container">
+
             <section class="aboutboxes">
                 <h1>About the team</h1>
                 <ul>
@@ -122,109 +148,87 @@ include '../IncFiles/header.inc';
                 </ul>
             </section>
 
-        <section class="aboutboxes">
-            <h1>About us</h1>
+            <section class="aboutboxes">
+                <h1>About us</h1>
 
-            <dl class="member">
-                <dt>Cohen Pentland</dt>
-                <dt><span class="student-id">Student ID:106506135 </span></dt>
-                <dd class="role">Working on about page</dd>
-                <dd class="quote">
-                    <span lang="la">Per aspera ad astra.</span><br>
-                    <em>"Through hardships to the stars."</em> — Latin
-                </dd>
-            </dl>
+                <?php if ($db_error): ?>
+                    <p style="color:red;"><?php echo htmlspecialchars($db_error); ?></p>
+                <?php elseif (!empty($members)): ?>
+                    <?php foreach ($members as $m): ?>
+                    <dl class="member">
+                        <dt><?php echo htmlspecialchars($m['name']); ?></dt>
+                        <dt><span class="student-id">Student ID: <?php echo htmlspecialchars($m['student_id']); ?></span></dt>
+                        <dd class="quote">
+                            <span lang="<?php echo htmlspecialchars($m['quote_lang']); ?>"><?php echo htmlspecialchars($m['quote']); ?></span><br>
+                            <em><?php echo htmlspecialchars($m['quote_translation']); ?></em> — <?php echo htmlspecialchars($m['quote_source']); ?>
+                        </dd>
+                        <dd><strong>Project 1:</strong> <?php echo htmlspecialchars($m['project1_contribution']); ?></dd>
+                        <dd><strong>Project 2:</strong> <?php echo htmlspecialchars($m['project2_contribution']); ?></dd>
+                    </dl>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No member contributions found in the database.</p>
+                <?php endif; ?>
+            </section>
 
-            <dl class="member">
-                <dt>Oliver Wisbey</dt>
-                <dt><span class="student-id">Student ID: 106520818</span></dt>
-                <dd class="role">Working on jobs page</dd>
-                <dd class="quote">
-                    <span lang="ja">七転び八起き。</span><br>
-                    <em>"Fall seven times, stand up eight."</em> — Japanese
-                </dd>
-            </dl>
+            <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
+                <h1>Group photo</h1>
+                <figure>
+                    <img class="group-photo" src="../Images/Groupphoto.jpg" alt="Team group photo">
+                    <figcaption>Github Gooners — COS10026 Wednesday 10am</figcaption>
+                </figure>
+            </section>
 
-            <dl class="member">
-                <dt>Connor Taylor</dt>
-                <dt><span class="student-id">Student ID: </span></dt>
-                <dd class="role">Working on index page</dd>
-                <dd class="quote">
-                    <span lang="fr">Petit à petit, l'oiseau fait son nid.</span><br>
-                    <em>"Little by little, the bird builds its nest."</em> — French
-                </dd>
-            </dl>
+            <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
+                <h1>Fun Facts</h1>
+                <table class="fun-facts-table">
+                    <caption>Get to know the team</caption>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Dream Job</th>
+                            <th>Coding Snack</th>
+                            <th>Hometown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cohen</td>
+                            <td>Software Engineer</td>
+                            <td>Chips</td>
+                            <td>Melbourne</td>
+                        </tr>
+                        <tr>
+                            <td>Oliver</td>
+                            <td>Web Developer</td>
+                            <td>Coffee</td>
+                            <td>Melbourne</td>
+                        </tr>
+                        <tr>
+                            <td>Connor</td>
+                            <td>UI/UX Designer</td>
+                            <td>Chocolate</td>
+                            <td>Melbourne</td>
+                        </tr>
+                        <tr>
+                            <td>Roman</td>
+                            <td>Full Stack Developer</td>
+                            <td>Energy Drink</td>
+                            <td>Melbourne</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-            <dl class="member">
-                <dt>Roman Young</dt>
-                <dt><span class="student-id">Student ID: </span></dt>
-                <dd class="role">Working on application page</dd>
-                <dd class="quote">
-                    <span lang="es">No hay mal que por bien no venga.</span><br>
-                    <em>"There is no bad from which good does not come."</em> — Spanish
-                </dd>
-            </dl>
-        </section>
+            <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
+                <h1>Acknowledgement of Country</h1>
+                <p>We acknowledge the Wurundjeri Woi-wurrung people of the Kulin Nation as the Traditional Custodians of the land on which Swinburne University is situated in Hawthorn, Victoria. We pay our respects to their Elders past, present, and emerging, and recognise their continuing connection to land, water, and community.</p>
+            </section>
 
-        <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
-            <h1>Group photo</h1>
-            <figure>
-                <img class="group-photo" src="../Images/Groupphoto.jpg" alt="Team group photo">
-                <figcaption>Github Gooners — COS10026 Wednesday 10am</figcaption>
-            </figure>
-        </section>
-
-        <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
-            <h1>Fun Facts</h1>
-            <table class="fun-facts-table">
-                <caption>Get to know the team</caption>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Dream Job</th>
-                        <th>Coding Snack</th>
-                        <th>Hometown</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Cohen</td>
-                        <td>Software Engineer</td>
-                        <td>Chips</td>
-                        <td>Melbourne</td>
-                    </tr>
-                    <tr>
-                        <td>Oliver</td>
-                        <td>Web Developer</td>
-                        <td>Coffee</td>
-                        <td>Melbourne</td>
-                    </tr>
-                    <tr>
-                        <td>Connor</td>
-                        <td>UI/UX Designer</td>
-                        <td>Chocolate</td>
-                        <td>Melbourne</td>
-                    </tr>
-                    <tr>
-                        <td>Roman</td>
-                        <td>Full Stack Developer</td>
-                        <td>Energy Drink</td>
-                        <td>Melbourne</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
-            <h1>Acknowledgement of Country</h1>
-            <p>We acknowledge the Wurundjeri Woi-wurrung people of the Kulin Nation as the Traditional Custodians of the land on which Swinburne University is situated in Hawthorn, Victoria. We pay our respects to their Elders past, present, and emerging, and recognise their continuing connection to land, water, and community.</p>
-        </section>
         </div>
     </main>
 
-<?php include '../IncFiles/footer.inc';
-?>
+<?php include '../IncFiles/footer.inc'; ?>
 
 </body>
-
 </html>
