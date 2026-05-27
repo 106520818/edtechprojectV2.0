@@ -29,19 +29,9 @@ Description: ___
 </head>
 
 <body>
-    <a href="../index.html">
-        <img id=book_smart_logo src="../Images/BookSmart_Digital_logo_CAF0F8_background.png"
-            alt="BookSmart Digital Company Logo" title="To home page">
-    </a>
-    <nav>
-        <ul>
-            <li><a href="../index.html" target="_self">Homepage</a></li>
-            <li><a href="apply.html" target="_self">Applications</a></li>
-            <li><a href="jobs.html" target="_self">Jobs</a></li>
-            <li><a href="about.html" target="_self">About</a></li>
-        </ul>
-    </nav>
-
+    <?php
+        include '../IncFiles/header.inc';
+    ?>
     <h1>Application Page</h1>
     <h2>Instructions:</h2>
     <h3 style="font-size: 0.9rem;">Please find the relevant <a href="jobs.html" target="_blank"
@@ -144,6 +134,11 @@ Description: ___
         <input type="submit" value="Register">
         <input type="reset" value="Reset Form">
     </form>
+    <hr>
+    <footer>
+    <?php include '../IncFiles/footer.inc';
+    ?>
+    </footer>
 </body>
 
 </html>
