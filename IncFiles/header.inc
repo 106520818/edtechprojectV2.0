@@ -8,7 +8,7 @@
             <li><a href="apply.php" target="_self">Applications</a></li>
             <li><a href="jobs.php" target="_self">Jobs</a></li>
             <li><a href="about.php" target="_self">About</a></li>
-            <li><a href="../login.php" target="_self">Manager Login</a></li>
+            <li><a href="login.php" target="_self">Manager Login</a></li>
 
         </ul>
     </nav>

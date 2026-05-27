@@ -1,5 +1,5 @@
 <?php
-require_once '../settings.php';
+require_once 'settings.php';
 
 $members = [];
 $db_error = "";
