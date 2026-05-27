@@ -1,4 +1,4 @@
-    <a href="index.html">
+    <a href="index.php">
         <img id=book_smart_logo src="../Images/BookSmart_Digital_logo_CAF0F8_background.png"
             alt="BookSmart Digital Company Logo" title="To home page">
     </a>
@@ -19,4 +19,6 @@
         <button type="submit">Search</button>
     </form>
 
-    <hr id = head_line>
+    <h1 style="text-align: center;">BookSmart Digital</h1>
+
+    <hr style="height: 3px; border: none; background-color: black;">
