@@ -17,7 +17,9 @@ session_start();
 </head>
 
 <body>
-    <header>
+<!-- TODO: Update to .inc file -->
+<!-- TODO: Add error message for incorrect username/password -->
+    <header> 
         <a href="pages/index.php">
             <img id="book_smart_logo" src="Images/BookSmart_Digital_logo_CAF0F8_background.png"
                 alt="BookSmart Digital Company Logo" title="To home page">
