@@ -129,7 +129,7 @@ INSERT INTO `member_contributions` (`name`, `student_id`, `quote`, `quote_lang`,
  'Developed the HR management page (manage.php) for viewing, filtering, sorting, and updating EOI application statuses.'),
 
 ('Connor Taylor', '106348271',
- 'Petit à petit', 'oiseau fait son nid.', 'fr',
+ 'Petit à petit, l\'oiseau fait son nid.', 'fr',
  '"Little by little, the bird builds its nest."', 'French',
  'Created the Homepage (index page) with the site introduction, navigation layout, and overall page structure and styling.',
  'Built shared header and footer include files (header.inc, footer.inc) for consistent navigation and branding across all pages.'),
