@@ -1,47 +1,81 @@
-#description p {
-    font-size: 20px;
-    /*sets description p font size*/
-  }
-  
+/* ── Hero ── */
+.hero {
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+}
 
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.75rem;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-actions a {
+    text-decoration: none;
+}
+
+/* ── Description card ── */
 #description {
-    background-image: url('../Images/Techhex.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    min-height: 200px;
-    min-width: 50px;
-    border-radius: 15px;
-    border: 3px outset blue;
-    /*Sets background image for description element and creates border*/
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
 }
 
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  /*sizes table element*/
+#description h3 {
+    color: var(--accent);
+    margin-bottom: 0.75rem;
 }
 
-th {
-  background: #49306B;
-  color: white;
-  padding: 12px;
-  /*sizes table header and colours text/background*/
+#description p {
+    font-size: 1rem;
+    line-height: 1.75;
 }
 
-td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  /*sizes table data and adds bottom border*/
+/* ── Opening hours section ── */
+.hours-section {
+    max-width: 480px;
+    margin: 0 auto 4rem;
 }
 
-tr:hover td {
-  background-color: #f5f5f5;
-  /*when hovering over a table row, table row goes to above colour*/
+.hours-section h2 {
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
-#description h3, #description p {
-    background-color: transparent;
-    /*makes desicription text background clear*/
+.hours-section caption {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.hours-section td:first-child {
+    font-weight: 600;
+    color: var(--text);
+    width: 40%;
 }

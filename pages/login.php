@@ -1,59 +1,48 @@
 <?php
 session_start();
 
-//if (isset($_SESSION["username"])) {
-//    header("Location: manage.php");
-//    exit();
-//}
+if (isset($_SESSION["username"])) {
+    header("Location: manage.php");
+    exit();
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Manager Login</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Login — BookSmart Digital</title>
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
-<!-- TODO: Update to .inc file -->
-<!-- TODO: Add error message for incorrect username/password -->
-    <header> 
-        <a href="pages/index.php">
-            <img id="book_smart_logo" src="Images/BookSmart_Digital_logo_CAF0F8_background.png"
-                alt="BookSmart Digital Company Logo" title="To home page">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="pages/index.php" target="_self">Homepage</a></li>
-                <li><a href="pages/apply.php" target="_self">Applications</a></li>
-                <li><a href="pages/jobs.php" target="_self">Jobs</a></li>
-                <li><a href="pages/about.php" target="_self">About</a></li>
-                <li><a href="login.php" target="_self">Manager Login</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <h1>HR Manager Login</h1>
+<?php include '../IncFiles/header.inc'; ?>
 
-        <form action="process.php" method="post" novalidate>
+<main>
+    <div class="form-card">
+        <h1>Manager Login</h1>
+
+        <?php if (isset($_GET['error'])): ?>
+            <p style="color:var(--danger);margin-bottom:1rem;">Incorrect username or password.</p>
+        <?php endif; ?>
+
+        <form action="process.php" method="post">
             <p>
-                Username:
-                <input type="text" name="username" required>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required autocomplete="username">
             </p>
-
             <p>
-                Password:
-                <input type="password" name="password" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required autocomplete="current-password">
             </p>
-
-            <input type="submit" value="Login">
+            <input type="submit" value="Log In" style="width:100%;margin-top:0.5rem;">
         </form>
-    </main>
+    </div>
+</main>
 
-    <?php include 'IncFiles/footer.inc'; ?>
+<?php include '../IncFiles/footer.inc'; ?>
+
 </body>
-
 </html>

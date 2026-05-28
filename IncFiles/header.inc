@@ -1,24 +1,15 @@
+<header class="site-header">
     <a href="index.php">
-        <img id=book_smart_logo src="../Images/BookSmart_Digital_logo_CAF0F8_background.png"
-            alt="BookSmart Digital Company Logo" title="To home page">
+        <img id="book_smart_logo" src="../Images/BookSmart_Digital_logo_CAF0F8_background.png"
+            alt="BookSmart Digital" title="Go to homepage">
     </a>
     <nav>
         <ul>
-            <li><a href="index.php" target="_self">Homepage</a></li>
-            <li><a href="apply.php" target="_self">Applications</a></li>
-            <li><a href="jobs.php" target="_self">Jobs</a></li>
-            <li><a href="about.php" target="_self">About</a></li>
-            <li><a href="login.php" target="_self">Manager Login</a></li>
-
+            <li><a href="index.php">Home</a></li>
+            <li><a href="jobs.php">Jobs</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="login.php">Manager</a></li>
+            <li><a href="apply.php" class="nav-cta">Apply Now</a></li>
         </ul>
     </nav>
-
-    <form>
-        <label for="search">Search:</label>
-        <input type="text" id="search" name = "search" placeholder="jobs, about, etc.">
-        <button type="submit">Search</button>
-    </form>
-
-    <h1 style="text-align: center;">BookSmart Digital</h1>
-
-    <hr style="height: 3px; border: none; background-color: black;">
+</header>

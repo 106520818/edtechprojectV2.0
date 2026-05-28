@@ -1,105 +1,142 @@
+/* ── Search bar ── */
 .search-container {
-    text-align: center;
-    margin: 2em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 auto 2rem;
+    max-width: 600px;
 }
 
-.search-container input {
-    width: 40%;
-    padding: 0.8em;
-    border: 2px solid #0077B6;
-    border-radius: 10px;
-    font-size: 1em;
+.search-container input[type="text"] {
+    flex: 1;
+    font-size: 0.95rem;
 }
 
 .search-container button {
-    padding: 0.8em 1.2em;
-    border: none;
-    border-radius: 10px;
-    background-color: #0077B6;
-    color: white;
-    cursor: pointer;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
-.jobs-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2em;
-    width: 100%;
-    margin-top: 2em;
-}
-
-.job-box {
-    background-color: #CAF0F8;
-    padding: 1em;
-    width: 42%;
-    border: 3px inset #0077B6;
-    border-radius: 16px;
-    box-sizing: border-box;
-}
-
-.job-description {
-    padding: 0.5em;
-    width: 55%;
-    float: left;
-    border: 2px inset #0077B6;
-    border-radius: 8px;
-    margin-bottom: 1em;
-}
-
-.job-salary {
-    padding: 0.5em;
-    width: 35%;
-    float: right;
-    border: 2px inset #0077B6;
-    border-radius: 8px;
-    margin-bottom: 1em;
-}
-
-.job-workflow {
-    padding: 0.5em;
-    width: 55%;
-    float: left;
-    border: 2px inset #0077B6;
-    border-radius: 8px;
-}
-
-.job-requirements {
-    padding: 0.5em;
-    width: 35%;
-    float: right;
-    border: 2px inset #0077B6;
-    border-radius: 8px;
-}
-
-.job-code {
-    float: right;
-    width: auto;
-    padding: 0.5em;
-    border: 2px inset #0077B6;
-    border-radius: 8px;
-    background-color: white;
-}
-
+/* ── Requirements aside ── */
 .requirements-box {
-    float: right;
-    width: 25%;
-    margin: 1em;
-    padding: 1em;
-    border: 2px inset #0077B6;
-    border-radius: 16px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-h1 {
+.requirements-box h2 {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+}
+
+.requirements-box p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ── Jobs grid ── */
+.jobs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 1.75rem;
+    width: 100%;
+}
+
+/* ── Job card ── */
+.job-box {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.job-box:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), 0 4px 20px rgba(37,99,235,0.12);
+}
+
+.job-box h2 {
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 0;
+}
+
+/* ── Job code badge ── */
+.job-code {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    align-self: flex-start;
+}
+
+/* ── Job sections ── */
+.job-description,
+.job-salary,
+.job-workflow,
+.job-requirements {
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+}
+
+.job-description p,
+.job-salary p,
+.job-workflow p,
+.job-requirements p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.job-salary h3,
+.job-workflow h4,
+.job-requirements h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+}
+
+.job-salary p {
+    color: var(--success);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+ul, ol {
+    padding-left: 1.4rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+li {
+    margin-bottom: 0.2rem;
+}
+
+/* ── No results ── */
+.jobs-container > p {
+    grid-column: 1 / -1;
     text-align: center;
-}
-
-ul,
-ol {
-    padding-left: 1.5em;
-}
-
-footer {
-    clear: both;
-    padding-top: 2em;
+    color: var(--text-muted);
+    font-size: 1rem;
+    padding: 3rem 0;
 }
