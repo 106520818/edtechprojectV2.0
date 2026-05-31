@@ -9,24 +9,26 @@
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $username = trim($_POST["username"]);
-    $password = trim($_POST["password"]);
+        $input_username = trim($_POST["username"]);
+        $input_password = trim($_POST["password"]);
 
-    $sql = "SELECT * FROM users WHERE username='$username'";
-    $result = mysqli_query($conn, $sql);
+        // prepared statement to avoid sql injection
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+        $stmt->bind_param("ss", $input_username, $input_password);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($row = mysqli_fetch_assoc($result)) {
-        if ($password == $row["password"]) {
+        $user = mysqli_fetch_assoc($result);
 
-            $_SESSION["username"] = $username;
+        if ($user) {
+            $_SESSION["username"] = $input_username;
             $_SESSION["error"] = NULL;
             header("Location: manage.php");
             exit();
+        } else {
+            $error = "Invalid username or password.";
+            $_SESSION["error"] = $error;
+            header("Location: login.php");
         }
-    }
-
-    $error = "Invalid username or password.";
-    $_SESSION["error"] = $error;
-    header("Location: login.php");
     }
 ?>
