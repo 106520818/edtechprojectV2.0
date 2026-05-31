@@ -13,14 +13,14 @@
         $input_password = trim($_POST["password"]);
 
         // prepared statement to avoid sql injection
-        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-        $stmt->bind_param("ss", $input_username, $input_password);
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param("s", $input_username);
         $stmt->execute();
         $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
 
-        $user = mysqli_fetch_assoc($result);
-
-        if ($user) {
+        // validating hashed password
+        if (password_verify($input_password, $user['password'])) {
             $_SESSION["username"] = $input_username;
             $_SESSION["error"] = NULL;
             header("Location: manage.php");
@@ -29,6 +29,7 @@
             $error = "Invalid username or password.";
             $_SESSION["error"] = $error;
             header("Location: login.php");
+            exit();
         }
     }
 ?>

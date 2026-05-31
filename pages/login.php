@@ -24,7 +24,7 @@ if (isset($_SESSION["username"])) {
         <h1>HR Manager Login</h1>
 
         <?php 
-        $error = $_SESSION["error"] ?? ""; // fallback operator (??)
+        $error = $_SESSION["error"] ?? ""; // falls back on "" if no value is given
         echo("<p id=error_message> $error </p>"); 
         ?>
         <form action="login_process.php" method="post" novalidate>
