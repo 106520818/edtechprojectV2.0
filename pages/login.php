@@ -30,7 +30,7 @@ session_start();
         $error = $_SESSION["error"] ?? ""; // fallback operator (??)
         echo("<p id=error_message> $error </p>"); 
         ?>
-        <form action="process.php" method="post" novalidate>
+        <form action="login_process.php" method="post" novalidate>
             <p>
                 Username:
                 <input type="text" name="username" required>

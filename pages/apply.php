@@ -34,7 +34,7 @@ Description: ___
     ?>
     <h1>Application Page</h1>
     <h2>Instructions:</h2>
-    <h3 style="font-size: 0.9rem;">Please find the relevant <a href="jobs.html" target="_blank"
+    <h3 style="font-size: 0.9rem;">Please find the relevant <a href="jobs.php" target="_blank"
             style="color: #3A3DF8">Reference Number</a> for the role you would like to apply to, and then fill out the
         form in its entirety. We will process applications as soon as possible, but please be aware that there may be
         delays due to the high volume of requests.</h3>

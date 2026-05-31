@@ -30,5 +30,3 @@
     header("Location: login.php");
     }
 ?>
-
-
