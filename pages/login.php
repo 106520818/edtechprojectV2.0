@@ -1,10 +1,9 @@
 <?php
 session_start();
-
-//if (isset($_SESSION["username"])) {
-//    header("Location: manage.php");
-//    exit();
-//}
+if (isset($_SESSION["username"])) {
+    header("Location: manage.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +16,6 @@ session_start();
 </head>
 
 <body>
-<!-- TODO: Update to .inc file -->
-<!-- TODO: Add error message for incorrect username/password -->
     <?php
         include '../IncFiles/header.inc';
     ?>
@@ -43,11 +40,6 @@ session_start();
 
             <input type="submit" value="Login">
         </form>
-
-        <!-- Button used for testing purposes -->
-            <p>
-                <a href="logout.php">Logout</a>
-            </p>
     </main>
 
     <?php include '../IncFiles/footer.inc'; ?>

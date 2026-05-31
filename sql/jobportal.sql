@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2026 at 03:07 AM
+-- Generation Time: May 31, 2026 at 06:48 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,39 @@ SET time_zone = "+00:00";
 --
 -- Database: `jobportal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eoi`
+--
+
+CREATE TABLE `eoi` (
+  `EOInumber` int(11) NOT NULL,
+  `job_ref` varchar(5) NOT NULL,
+  `first_name` varchar(20) NOT NULL,
+  `last_name` varchar(20) NOT NULL,
+  `dob` date NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `street_address` varchar(40) NOT NULL,
+  `suburb_town` varchar(40) NOT NULL,
+  `state` varchar(3) NOT NULL,
+  `postcode` varchar(4) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `phone_number` varchar(12) NOT NULL,
+  `skills` text DEFAULT NULL,
+  `other_skills` text DEFAULT NULL,
+  `status` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `eoi`
+--
+
+INSERT INTO `eoi` (`EOInumber`, `job_ref`, `first_name`, `last_name`, `dob`, `gender`, `street_address`, `suburb_town`, `state`, `postcode`, `email`, `phone_number`, `skills`, `other_skills`, `status`) VALUES
+(1, 'Jdev1', 'Jane', 'Doe', '2026-05-31', 'F', '2 Main Street', 'Other Example Town', 'NSW', '4321', 'example2@example.com', '87654321', 'Communication', 'Programming', 'Final'),
+(2, 'UXID1', 'John', 'Doe', '2026-05-31', 'M', '1 Main Street', 'Example Town', 'VIC', '1234', 'example1@example.com', '12345678', 'Leadership, Communication, Website Development', 'N/A', 'New'),
+(3, 'Sdev1', 'John', 'Smith', '2026-05-30', 'X', '3 Main Street', 'Example Suburb', 'NSW', '1243', 'example3@example.com', '18273645', '', '', 'New');
 
 -- --------------------------------------------------------
 
@@ -46,7 +79,35 @@ CREATE TABLE `jobs` (
 INSERT INTO `jobs` (`job_id`, `title`, `job_code`, `description`, `responsibilities`, `expectations`, `salary`, `reporting_line`, `requirements`) VALUES
 (1, 'Junior Developer Position', 'Jdev1', 'As a Junior Developer you will work across both front-end (HTML) and back-end (CSS) code an ideal position for furthering your experience in the industry early on, with room to expand into further responsibilities', 'Assist in the design, development and testing of our web applications,Debug and troubleshoot application performance,Build and integrate back-end systems for expansion', 'Contribute to technical documentation,Continuously build and improve your technical skills', 60000, 'You will be expected to report to the senior developers of your team', 'Prior experience with HTML5 coding,Basic understanding of industry/web standards,Strong communication and collaboration skills'),
 (2, 'Senior Developer Position', 'Sdev1', 'You will help lead a team to build a platform, lead designing and coding fit to the best practices of modern standards', 'Design and develop our platform to above industry standards,Lead your development team through creation of the platform,Drive expansion and integration of the application to requirements', 'Skilled at working to build alignment,Drive decision making,Transparent communication', 138000, 'You will be expected to report to the project head', 'At least 7 years of in industry HTML5 coding,Advanced understanding of industry/web standards,Strong communication and collaboration skills'),
-(3, 'UX/UI Designer Position', 'UXD1', 'As a UX/UI Designer you will create intuitive and visually engaging interfaces for our educational platform while collaborating closely with developers and project managers.', 'Design user-friendly web interfaces,Create wireframes and mockups for new features,Collaborate with developers to improve usability', 'Maintain consistency across platform designs,Communicate design decisions clearly,Continuously improve user experience knowledge', 85000, 'You will report directly to the lead product designer', 'Experience with Figma or Adobe XD,Strong understanding of UX principles,Ability to work collaboratively in teams');
+(3, 'UX/UI Designer Position', 'UXID1', 'As a UX/UI Designer you will create intuitive and visually engaging interfaces for our educational platform while collaborating closely with developers and project managers.', 'Design user-friendly web interfaces,Create wireframes and mockups for new features,Collaborate with developers to improve usability', 'Maintain consistency across platform designs,Communicate design decisions clearly,Continuously improve user experience knowledge', 85000, 'You will report directly to the lead product designer', 'Experience with Figma or Adobe XD,Strong understanding of UX principles,Ability to work collaboratively in teams');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_contributions`
+--
+
+CREATE TABLE `member_contributions` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `student_id` varchar(20) NOT NULL,
+  `quote` text NOT NULL,
+  `quote_lang` varchar(10) NOT NULL DEFAULT 'en',
+  `quote_translation` text NOT NULL,
+  `quote_source` varchar(100) NOT NULL,
+  `project1_contribution` text NOT NULL,
+  `project2_contribution` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `member_contributions`
+--
+
+INSERT INTO `member_contributions` (`id`, `name`, `student_id`, `quote`, `quote_lang`, `quote_translation`, `quote_source`, `project1_contribution`, `project2_contribution`) VALUES
+(1, 'Cohen Pentland', '106506135', 'Per aspera ad astra.', 'la', '\"Through hardships to the stars.\"', 'Latin', 'Designed and built the About page, including team member profiles, fun facts table, group photo section, and acknowledgement of country.', 'Integrated member contributions into the database and updated the About page to dynamically load data from MySQL via PHP.'),
+(2, 'Oliver Wisbey', '106520818', '七転び八起き。', 'ja', '\"Fall seven times, stand up eight.\"', 'Japanese', 'Built the Jobs page, including job listing cards with descriptions, responsibilities, expectations, salary, and requirements pulled from the database.', 'Developed the HR management page (manage.php) for viewing, filtering, sorting, and updating EOI application statuses.'),
+(3, 'Connor Taylor', '106348271', 'Petit à petit, l\'oiseau fait son nid.', 'fr', '\"Little by little, the bird builds its nest.\"', 'French', 'Created the Homepage (index page) with the site introduction, navigation layout, and overall page structure and styling.', 'Built shared header and footer include files (header.inc, footer.inc) for consistent navigation and branding across all pages.'),
+(4, 'Roman Young', '106520313', 'No hay mal que por bien no venga.', 'es', '\"There is no bad from which good does not come.\"', 'Spanish', 'Built the Application page (apply.php) with the EOI submission form, including all input fields and client-side validation.', 'Implemented the login/logout system (login.php, logout.php) and the EOI form processing backend (process.php) with server-side validation and database insertion.');
 
 -- --------------------------------------------------------
 
@@ -61,14 +122,33 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
+(1, 'Admin', 'Admin123');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `eoi`
+--
+ALTER TABLE `eoi`
+  ADD PRIMARY KEY (`EOInumber`);
 
 --
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`job_id`);
+
+--
+-- Indexes for table `member_contributions`
+--
+ALTER TABLE `member_contributions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -81,65 +161,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `eoi`
+--
+ALTER TABLE `eoi`
+  MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
   MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `member_contributions`
+--
+ALTER TABLE `member_contributions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `member_contributions`
---
-
-CREATE TABLE `member_contributions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `student_id` varchar(20) NOT NULL,
-  `quote` text NOT NULL,
-  `quote_lang` varchar(10) NOT NULL DEFAULT 'en',
-  `quote_translation` text NOT NULL,
-  `quote_source` varchar(100) NOT NULL,
-  `project1_contribution` text NOT NULL,
-  `project2_contribution` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `member_contributions`
---
-
-INSERT INTO `member_contributions` (`name`, `student_id`, `quote`, `quote_lang`, `quote_translation`, `quote_source`, `project1_contribution`, `project2_contribution`) VALUES
-('Cohen Pentland', '106506135',
- 'Per aspera ad astra.', 'la',
- '"Through hardships to the stars."', 'Latin',
- 'Designed and built the About page, including team member profiles, fun facts table, group photo section, and acknowledgement of country.',
- 'Integrated member contributions into the database and updated the About page to dynamically load data from MySQL via PHP.'),
-
-('Oliver Wisbey', '106520818',
- '七転び八起き。', 'ja',
- '"Fall seven times, stand up eight."', 'Japanese',
- 'Built the Jobs page, including job listing cards with descriptions, responsibilities, expectations, salary, and requirements pulled from the database.',
- 'Developed the HR management page (manage.php) for viewing, filtering, sorting, and updating EOI application statuses.'),
-
-('Connor Taylor', '106348271',
- 'Petit à petit, l\'oiseau fait son nid.', 'fr',
- '"Little by little, the bird builds its nest."', 'French',
- 'Created the Homepage (index page) with the site introduction, navigation layout, and overall page structure and styling.',
- 'Built shared header and footer include files (header.inc, footer.inc) for consistent navigation and branding across all pages.'),
-
-('Roman Young', '106520313',
- 'No hay mal que por bien no venga.', 'es',
- '"There is no bad from which good does not come."', 'Spanish',
- 'Built the Application page (apply.php) with the EOI submission form, including all input fields and client-side validation.',
- 'Implemented the login/logout system (login.php, logout.php) and the EOI form processing backend (process.php) with server-side validation and database insertion.');
-
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

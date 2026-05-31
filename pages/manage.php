@@ -6,6 +6,8 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
+$_SESSION["error"] = NULL;
+
 require_once("settings.php");
 
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
@@ -17,7 +19,7 @@ if (!$conn) {
 $sort = "EOInumber";
 
 if (isset($_GET["sort"])) {
-    $allowed = ["EOInumber", "job_ref", "first_name", "last_name", "status"];
+    $allowed = ["job_ref", "first_name", 'last_name', "dob", "gender", "street_address", "suburb_town", "state", "postcode", "email", "phone_number", "skills", "other_skills", "status"];
 
     if (in_array($_GET["sort"], $allowed)) {
         $sort = $_GET["sort"];
@@ -92,10 +94,14 @@ $result = mysqli_query($conn, $query);
 
 <head>
     <title>Manage EOIs</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
+
+<?php
+    include '../IncFiles/header.inc';
+?>
 
 <h1>HR Management</h1>
 
@@ -198,7 +204,16 @@ $result = mysqli_query($conn, $query);
     <th>Job Ref</th>
     <th>First Name</th>
     <th>Last Name</th>
+    <th>DOB</th>
+    <th>Gender</th>
+    <th>Street Address</th>
+    <th>Suburb/Town</th>
+    <th>State</th>
+    <th>Postcode</th>
     <th>Email</th>
+    <th>Phone Number</th>
+    <th>Skills</th>
+    <th>Other Skills</th>
     <th>Status</th>
 </tr>
 
@@ -214,14 +229,23 @@ if ($result && mysqli_num_rows($result) > 0) {
         echo "<td>" . $row["job_ref"] . "</td>";
         echo "<td>" . $row["first_name"] . "</td>";
         echo "<td>" . $row["last_name"] . "</td>";
+        echo "<td>" . $row["dob"] . "</td>";
+        echo "<td>" . $row["gender"] . "</td>";
+        echo "<td>" . $row["street_address"] . "</td>";
+        echo "<td>" . $row["suburb_town"] . "</td>";
+        echo "<td>" . $row["state"] . "</td>";
+        echo "<td>" . $row["postcode"] . "</td>";
         echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["phone_number"] . "</td>";
+        echo "<td>" . $row["skills"] . "</td>";
+        echo "<td>" . $row["other_skills"] . "</td>";
         echo "<td>" . $row["status"] . "</td>";
 
         echo "</tr>";
     }
 }
 else {
-    echo "<tr><td colspan='6'>No records found.</td></tr>";
+    echo "<tr><td colspan='15'>No records found.</td></tr>";
 }
 
 mysqli_close($conn);
@@ -229,5 +253,7 @@ mysqli_close($conn);
 
 </table>
 
+<?php include '../IncFiles/footer.inc';
+?>
 </body>
 </html>
