@@ -21,6 +21,7 @@
 
         // validating hashed password
         if (password_verify($input_password, $user['password'])) {
+            session_regenerate_id(true);
             $_SESSION["username"] = $input_username;
             $_SESSION["error"] = NULL;
             header("Location: manage.php");
