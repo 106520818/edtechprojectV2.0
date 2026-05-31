@@ -13,21 +13,24 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Manager Login</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css">
 </head>
 
 <body>
 <!-- TODO: Update to .inc file -->
 <!-- TODO: Add error message for incorrect username/password -->
-    <header> 
-        <?php
-            include '../IncFiles/header.inc';
-        ?>
-    </header>
+    <?php
+        include '../IncFiles/header.inc';
+    ?>
 
     <main>
         <h1>HR Manager Login</h1>
 
+        <?php 
+            if ($_SESSION["error"] != null) {
+                echo($_SESSION["error"]);
+            }
+        ?>
         <form action="process.php" method="post" novalidate>
             <p>
                 Username:
@@ -41,9 +44,14 @@ session_start();
 
             <input type="submit" value="Login">
         </form>
+
+        <!-- Button used for testing purposes -->
+            <p>
+                <a href="logout.php">Logout</a>
+            </p>
     </main>
 
-    <?php include 'IncFiles/footer.inc'; ?>
+    <?php include '../IncFiles/footer.inc'; ?>
 </body>
 
 </html>
