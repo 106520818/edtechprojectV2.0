@@ -27,9 +27,8 @@ session_start();
         <h1>HR Manager Login</h1>
 
         <?php 
-            if ($_SESSION["error"] != null) {
-                echo($_SESSION["error"]);
-            }
+        $error = $_SESSION["error"] ?? ""; // fallback operator (??)
+        echo("<p id=error_message> $error </p>"); 
         ?>
         <form action="process.php" method="post" novalidate>
             <p>

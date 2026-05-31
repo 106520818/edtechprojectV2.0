@@ -19,7 +19,7 @@
         if ($password == $row["password"]) {
 
             $_SESSION["username"] = $username;
-
+            $_SESSION["error"] = NULL;
             header("Location: manage.php");
             exit();
         }
