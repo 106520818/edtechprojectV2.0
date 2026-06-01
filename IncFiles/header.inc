@@ -13,12 +13,6 @@
         </ul>
     </nav>
 
-    <form>
-        <label for="search">Search:</label>
-        <input type="text" id="search" name = "search" placeholder="jobs, about, etc.">
-        <button type="submit">Search</button>
-    </form>
-
     <h1 style="text-align: center;">BookSmart Digital</h1>
 
     <hr style="height: 3px; border: none; background-color: black;">

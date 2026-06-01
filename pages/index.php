@@ -20,6 +20,12 @@
 include '../IncFiles/header.inc';
 ?>
 
+<form style="padding:20px">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name = "search" placeholder="jobs, about, etc.">
+        <button type="submit">Search</button>
+    </form>
+
 <body>
     <h2 style="text-align: center;">"Where proven learning techniques meet modern tech"</h2>
     <fieldset id="index-description">
