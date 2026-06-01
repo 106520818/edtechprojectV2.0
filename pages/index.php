@@ -4,7 +4,6 @@
 
 <head>
     <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/index.css">
     <title>Booksmart Digital Home Page</title>
     <meta charset="UTF-8">
     <meta name="description" content="EdTech Project home page">
@@ -23,7 +22,7 @@ include '../IncFiles/header.inc';
 
 <body>
     <h2 style="text-align: center;">"Where proven learning techniques meet modern tech"</h2>
-    <fieldset id="index.description">
+    <fieldset id="index-description">
     <h3>Company Description:</h3>
     <p> We at booksmart digital are a technology company developing digital learning tools and platforms. We are currently seeking web developers and designers to support accessible and inclusive online education services </p>
     <p>We aim to have a culture condusive to worklife balance whilst maintaining excellence. We champion diversity and accessability in the everyday. Success both inside and outside of the office is always celebrated</p>
@@ -32,7 +31,7 @@ include '../IncFiles/header.inc';
 
     <br>
 
-    <table id = index.table>
+    <table id = index-table>
         <caption>Address: 123 Swinburn Crt 3797</caption>
 
         <thead>

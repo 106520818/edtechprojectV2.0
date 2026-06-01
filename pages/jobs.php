@@ -8,8 +8,6 @@
         <meta name="author" content="Oliver Wisbey, Roman Young">
 
         <title>Our Jobs</title>
-
-        <link rel="stylesheet" type="text/css" href="../styles/jobs_layout.css">
         <link rel="stylesheet" type="text/css" href="../styles/styles.css">
     </head>
 

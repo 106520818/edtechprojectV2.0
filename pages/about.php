@@ -30,7 +30,6 @@ Description: About page
 
 <head>
     <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="../styles/about.css">
     <title>Booksmart Digital - About</title>
     <meta charset="UTF-8">
     <meta name="description" content="EdTech Project about page">

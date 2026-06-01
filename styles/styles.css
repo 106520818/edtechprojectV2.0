@@ -161,7 +161,7 @@ h3 {
    Description Section
 ========================= */
 
-#index.description {
+#index-description {
     background:
         linear-gradient(
             rgba(255,255,255,0.9),
@@ -174,12 +174,12 @@ h3 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-#index.description h3,
-#index.description p {
+#index-description h3,
+#index-description p {
     background: transparent;
 }
 
-#index.description p {
+#index-description p {
     font-size: 1.1rem;
 }
 
@@ -187,7 +187,7 @@ h3 {
    Tables
 ========================= */
 
-#index.table {
+#index-table {
     width: 100%;
     border-collapse: collapse;
     background: white;
@@ -196,21 +196,21 @@ h3 {
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-#index.table th {
+#index-table th {
     background: #4338CA;
     color: white;
     padding: 1rem;
 }
 
-#index.table td {
+#index-table td {
     padding: 1rem;
 }
 
-#index.table tr:nth-child(even) {
+#index-table tr:nth-child(even) {
     background: #F8FAFC;
 }
 
-#index.table tr:hover {
+#index-table tr:hover {
     background: #EEF2FF;
 }
 
