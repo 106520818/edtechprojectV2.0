@@ -1,5 +1,5 @@
     <a href="index.php">
-        <img id=book_smart_logo src="../Images/BookSmart_Digital_logo_CAF0F8_background.png"
+        <img id=book_smart_logo src="../Images/booksmartdigital.png"
             alt="BookSmart Digital Company Logo" title="To home page">
     </a>
     <nav>

@@ -30,7 +30,6 @@ Description: About page
 
 <head>
     <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="../styles/about.css">
     <title>Booksmart Digital - About</title>
     <meta charset="UTF-8">
     <meta name="description" content="EdTech Project about page">
@@ -38,24 +37,6 @@ Description: About page
     <meta name="author" content="Connor Taylor">
 
     <style>
-        footer {
-            font-size: 20px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: center;
-            align-content: normal;
-            column-gap: 50px;
-            width: 100%;
-            height: 80px;
-            position: fixed;
-            bottom: 0;
-            background-color: #90E0EF;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
         .student-id {
             font-size: 0.85em;
             color: #0077B6;

@@ -135,7 +135,6 @@ Description: Application page for Ed Tech Digital
         <input type="submit" value="Register">
         <input type="reset" value="Reset Form">
     </form>
-    <hr>
     <footer>
     <?php include '../IncFiles/footer.inc';
     ?>
