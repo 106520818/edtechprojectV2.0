@@ -97,11 +97,14 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
+
 <body>
 
 <?php
     include '../IncFiles/header.inc';
 ?>
+
+<div class="manage-page">
 
 <h1>HR Management</h1>
 
@@ -252,8 +255,10 @@ mysqli_close($conn);
 ?>
 
 </table>
+</div>
 
 <?php include '../IncFiles/footer.inc';
 ?>
+
 </body>
 </html>
