@@ -1,23 +1,57 @@
 <?php
 require_once 'settings.php';
 
-$members = [];
-$db_error = "";
+$members      = [];
+$content      = [];
+$fun_facts    = [];
+$fact_columns = [];
+$db_error     = "";
+
 mysqli_report(MYSQLI_REPORT_OFF);
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
     $db_error = "Connection failed: " . mysqli_connect_error();
 } else {
-    $result = @mysqli_query($conn, "SELECT * FROM member_contributions ORDER BY id");
-    if (!$result) {
+    $r1 = @mysqli_query($conn, "SELECT * FROM member_contributions ORDER BY id");
+    if (!$r1) {
         $db_error = "Query failed: " . mysqli_error($conn);
     } else {
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($r1)) {
             $members[] = $row;
         }
     }
+
+    $r2 = @mysqli_query($conn, "SELECT content_key, content_value FROM about_content");
+    if ($r2) {
+        while ($row = mysqli_fetch_assoc($r2)) {
+            $content[$row['content_key']] = $row['content_value'];
+        }
+    }
+
+    $r3 = @mysqli_query($conn,
+        "SELECT member_name, fact_key, fact_value FROM member_fun_facts ORDER BY display_order ASC, member_name ASC");
+    if ($r3) {
+        while ($row = mysqli_fetch_assoc($r3)) {
+            $name = $row['member_name'];
+            $key  = $row['fact_key'];
+            if (!isset($fun_facts[$name])) {
+                $fun_facts[$name] = [];
+            }
+            $fun_facts[$name][$key] = $row['fact_value'];
+            if (!in_array($key, $fact_columns)) {
+                $fact_columns[] = $key;
+            }
+        }
+    }
+
     mysqli_close($conn);
 }
+
+$group_name    = $content['group_name']               ?? 'Our Group';
+$class_time    = $content['class_time']               ?? '';
+$unit          = $content['unit']                     ?? '';
+$photo_caption = $content['group_photo_caption']      ?? '';
+$aoc_text      = $content['acknowledgement_of_country'] ?? '';
 ?>
 <!DOCTYPE html>
 <!--
@@ -114,26 +148,24 @@ if (!@include('../IncFiles/header.inc')) {
     <main>
         <div class="about-container">
 
-            <section class="aboutboxes">
+            <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
                 <h1>About the team</h1>
-                <ul>
-                    <li>Group name: Github Gooners
-                        <ul>
-                            <li>Class: Wednesday 10am</li>
-                            <li>Unit: COS10026 Web Technology</li>
-                        </ul>
-                    </li>
-                </ul>
+                <p style="text-align:center; color:#03045E;">
+                    <strong><?php echo htmlspecialchars($group_name); ?></strong>
+                    &nbsp;·&nbsp; <?php echo htmlspecialchars($class_time); ?>
+                    &nbsp;·&nbsp; <?php echo htmlspecialchars($unit); ?>
+                </p>
             </section>
 
-            <section class="aboutboxes">
+            <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
                 <h1>About us</h1>
 
                 <?php if ($db_error): ?>
                     <p style="color:red;"><?php echo htmlspecialchars($db_error); ?></p>
                 <?php elseif (!empty($members)): ?>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.2rem; margin-top:0.5rem;">
                     <?php foreach ($members as $m): ?>
-                    <dl class="member">
+                    <dl class="member" style="margin:0; padding:1rem; background:#f0f9ff; border-radius:12px; border:1px solid #90E0EF;">
                         <dt><?php echo htmlspecialchars($m['name']); ?></dt>
                         <dt><span class="student-id">Student ID: <?php echo htmlspecialchars($m['student_id']); ?></span></dt>
                         <dd class="quote">
@@ -144,6 +176,7 @@ if (!@include('../IncFiles/header.inc')) {
                         <dd><strong>Project 2:</strong> <?php echo htmlspecialchars($m['project2_contribution']); ?></dd>
                     </dl>
                     <?php endforeach; ?>
+                </div>
                 <?php else: ?>
                     <p>No member contributions found in the database.</p>
                 <?php endif; ?>
@@ -153,54 +186,42 @@ if (!@include('../IncFiles/header.inc')) {
                 <h1>Group photo</h1>
                 <figure>
                     <img class="group-photo" src="../Images/Groupphoto.jpg" alt="Team group photo">
-                    <figcaption>Github Gooners — COS10026 Wednesday 10am</figcaption>
+                    <figcaption><?php echo htmlspecialchars($photo_caption); ?></figcaption>
                 </figure>
             </section>
 
             <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
                 <h1>Fun Facts</h1>
+                <?php if (!empty($fun_facts) && !empty($fact_columns)): ?>
                 <table class="fun-facts-table">
                     <caption>Get to know the team</caption>
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Dream Job</th>
-                            <th>Coding Snack</th>
-                            <th>Hometown</th>
+                            <?php foreach ($fact_columns as $col): ?>
+                                <th><?php echo htmlspecialchars($col); ?></th>
+                            <?php endforeach; ?>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($fun_facts as $name => $facts): ?>
                         <tr>
-                            <td>Cohen</td>
-                            <td>Software Engineer</td>
-                            <td>Chips</td>
-                            <td>Melbourne</td>
+                            <td><?php echo htmlspecialchars($name); ?></td>
+                            <?php foreach ($fact_columns as $col): ?>
+                                <td><?php echo htmlspecialchars(isset($facts[$col]) ? $facts[$col] : '—'); ?></td>
+                            <?php endforeach; ?>
                         </tr>
-                        <tr>
-                            <td>Oliver</td>
-                            <td>Web Developer</td>
-                            <td>Coffee</td>
-                            <td>Melbourne</td>
-                        </tr>
-                        <tr>
-                            <td>Connor</td>
-                            <td>UI/UX Designer</td>
-                            <td>Chocolate</td>
-                            <td>Melbourne</td>
-                        </tr>
-                        <tr>
-                            <td>Roman</td>
-                            <td>Full Stack Developer</td>
-                            <td>Energy Drink</td>
-                            <td>Melbourne</td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
+                <?php else: ?>
+                    <p>No fun facts available.</p>
+                <?php endif; ?>
             </section>
 
             <section class="aboutboxes" style="flex: 1 1 100%; max-width: 100%;">
                 <h1>Acknowledgement of Country</h1>
-                <p>We acknowledge the Wurundjeri Woi-wurrung people of the Kulin Nation as the Traditional Custodians of the land on which Swinburne University is situated in Hawthorn, Victoria. We pay our respects to their Elders past, present, and emerging, and recognise their continuing connection to land, water, and community.</p>
+                <p><?php echo htmlspecialchars($aoc_text); ?></p>
             </section>
 
         </div>
