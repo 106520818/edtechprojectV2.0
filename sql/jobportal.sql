@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2026 at 07:45 AM
+-- Generation Time: Jun 01, 2026 at 03:33 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `jobportal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_content`
+--
+
+CREATE TABLE `about_content` (
+  `id` int(11) NOT NULL,
+  `content_key` varchar(100) NOT NULL,
+  `content_value` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about_content`
+--
+
+INSERT INTO `about_content` (`id`, `content_key`, `content_value`) VALUES
+(1, 'group_name', 'Github Gooners'),
+(2, 'class_time', 'Wednesday 10am'),
+(3, 'unit', 'COS10026 Web Technology'),
+(4, 'group_photo_caption', 'Github Gooners — COS10026 Wednesday 10am'),
+(5, 'acknowledgement_of_country', 'We acknowledge the Wurundjeri Woi-wurrung people of the Kulin Nation as the Traditional Custodians of the land on which Swinburne University is situated in Hawthorn, Victoria. We pay our respects to their Elders past, present, and emerging, and recognise their continuing connection to land, water, and community.');
 
 -- --------------------------------------------------------
 
@@ -112,6 +135,38 @@ INSERT INTO `member_contributions` (`id`, `name`, `student_id`, `quote`, `quote_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `member_fun_facts`
+--
+
+CREATE TABLE `member_fun_facts` (
+  `id` int(11) NOT NULL,
+  `member_name` varchar(100) NOT NULL,
+  `fact_key` varchar(100) NOT NULL,
+  `fact_value` varchar(255) NOT NULL,
+  `display_order` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `member_fun_facts`
+--
+
+INSERT INTO `member_fun_facts` (`id`, `member_name`, `fact_key`, `fact_value`, `display_order`) VALUES
+(1, 'Cohen', 'Dream Job', 'Software Engineer', 1),
+(2, 'Cohen', 'Coding Snack', 'Chips', 1),
+(3, 'Cohen', 'Hometown', 'Melbourne', 1),
+(4, 'Oliver', 'Dream Job', 'Web Developer', 2),
+(5, 'Oliver', 'Coding Snack', 'Coffee', 2),
+(6, 'Oliver', 'Hometown', 'Melbourne', 2),
+(7, 'Connor', 'Dream Job', 'UI/UX Designer', 3),
+(8, 'Connor', 'Coding Snack', 'Chocolate', 3),
+(9, 'Connor', 'Hometown', 'Melbourne', 3),
+(10, 'Roman', 'Dream Job', 'Full Stack Developer', 4),
+(11, 'Roman', 'Coding Snack', 'Energy Drink', 4),
+(12, 'Roman', 'Hometown', 'Melbourne', 4);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -128,68 +183,16 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
 (2, 'Admin', '$2y$10$V2ndkTA8t.IL.kwkMaps7u.Mz.yKKk8K70xLXl4.PP8AIrM.wRPf.');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `about_content`
---
-
-CREATE TABLE `about_content` (
-  `id`            int(11)      NOT NULL AUTO_INCREMENT,
-  `content_key`   varchar(100) NOT NULL,
-  `content_value` text         NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `uq_content_key` (`content_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `about_content`
---
-
-INSERT INTO `about_content` (`content_key`, `content_value`) VALUES
-('group_name',                  'Github Gooners'),
-('class_time',                  'Wednesday 10am'),
-('unit',                        'COS10026 Web Technology'),
-('group_photo_caption',         'Github Gooners — COS10026 Wednesday 10am'),
-('acknowledgement_of_country',  'We acknowledge the Wurundjeri Woi-wurrung people of the Kulin Nation as the Traditional Custodians of the land on which Swinburne University is situated in Hawthorn, Victoria. We pay our respects to their Elders past, present, and emerging, and recognise their continuing connection to land, water, and community.');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `member_fun_facts`
---
-
-CREATE TABLE `member_fun_facts` (
-  `id`            int(11)      NOT NULL AUTO_INCREMENT,
-  `member_name`   varchar(100) NOT NULL,
-  `fact_key`      varchar(100) NOT NULL,
-  `fact_value`    varchar(255) NOT NULL,
-  `display_order` int(11)      NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `uq_member_fact` (`member_name`, `fact_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `member_fun_facts`
---
-
-INSERT INTO `member_fun_facts` (`member_name`, `fact_key`, `fact_value`, `display_order`) VALUES
-('Cohen',   'Dream Job',    'Software Engineer',    1),
-('Cohen',   'Coding Snack', 'Chips',                1),
-('Cohen',   'Hometown',     'Melbourne',            1),
-('Oliver',  'Dream Job',    'Web Developer',        2),
-('Oliver',  'Coding Snack', 'Coffee',               2),
-('Oliver',  'Hometown',     'Melbourne',            2),
-('Connor',  'Dream Job',    'UI/UX Designer',       3),
-('Connor',  'Coding Snack', 'Chocolate',            3),
-('Connor',  'Hometown',     'Melbourne',            3),
-('Roman',   'Dream Job',    'Full Stack Developer', 4),
-('Roman',   'Coding Snack', 'Energy Drink',         4),
-('Roman',   'Hometown',     'Melbourne',            4);
-
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `about_content`
+--
+ALTER TABLE `about_content`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_content_key` (`content_key`);
 
 --
 -- Indexes for table `eoi`
@@ -210,58 +213,33 @@ ALTER TABLE `member_contributions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `member_fun_facts`
+--
+ALTER TABLE `member_fun_facts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_member_fact` (`member_name`,`fact_key`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `about_content`
---
-ALTER TABLE `about_content`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_content_key` (`content_key`);
-
---
--- Indexes for table `member_fun_facts`
---
-ALTER TABLE `member_fun_facts`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uq_member_fact` (`member_name`, `fact_key`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `eoi`
---
-ALTER TABLE `eoi`
-  MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `jobs`
---
-ALTER TABLE `jobs`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `member_contributions`
---
-ALTER TABLE `member_contributions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `about_content`
 --
 ALTER TABLE `about_content`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `member_fun_facts`

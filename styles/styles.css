@@ -440,6 +440,104 @@ fieldset {
 }
 
 /* =========================
+   Add Job Page
+========================= */
+
+.add-job-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+}
+
+.add-job-section {
+    background: #CAF0F8;
+
+    width: 45%;
+    min-width: 350px;
+
+    padding: 1.5rem;
+
+    border: 3px inset #0077B6;
+    border-radius: 16px;
+}
+
+.add-job-section h2 {
+    margin-bottom: 1rem;
+    color: #2563EB;
+}
+
+.add-job-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.add-job-section input[type="text"],
+.add-job-section input[type="number"],
+.add-job-section textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-family: inherit;
+}
+
+.add-job-section textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.add-job-actions {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.submit-button,
+.back-button {
+    background: #2563EB;
+    color: white;
+
+    border: none;
+    border-radius: 50px;
+
+    padding: 0.8rem 1.5rem;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.submit-button,
+.back-button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+
+    background: #2563EB;
+    color: white;
+
+    border: none;
+    border-radius: 50px;
+
+    padding: 0.8rem 1.5rem;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* =========================
    Footer
 ========================= */
 footer {

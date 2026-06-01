@@ -198,6 +198,16 @@ $result = mysqli_query($conn, $query);
 
 <hr>
 
+<h2>Job Management</h2>
+
+<form action="add_job.php" method="get">
+
+    <input type="submit" value="Create New Job Listing">
+
+</form>
+
+<hr>
+
 <h2>EOI Records</h2>
 
 <table border="1">
